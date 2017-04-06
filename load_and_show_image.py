@@ -10,13 +10,15 @@ def load_image_file(filename, mode='RGB'):
     :return: image contents as numpy array
     """
     return scipy.misc.imread(filename, mode=mode)
-with open("false_img_list.csv", "r", encoding="utf-8") as csvfile:
+
+img_num = 245
+csv_list = "false_img_list.csv"
+with open(csv_list, "r", encoding="utf-8") as csvfile:
     read = csv.reader(csvfile)
     name_list = []
     for i in read:
         filename = i[0]
         name_list.append(filename)
-img_num = 23
 print(name_list[img_num])
 face_image = load_image_file(name_list[img_num])
 pil_image = Image.fromarray(face_image)
